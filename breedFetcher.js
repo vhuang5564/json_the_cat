@@ -1,8 +1,7 @@
-const fetch = require('node-fetch')
+fetchBreed = function(breed) {
 
-const breed = process.argv.slice(2)
-
-fetch(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`)
+  const fetch = require('node-fetch')
+  fetch(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`)
   .then(res => {
     if (res.ok) {
       return res.json() // turns in to object
@@ -11,5 +10,6 @@ fetch(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`)
     } 
    })
   .then(data => console.log(data)) // prints data
+}
 
-  
+module.exports = fetchBreed;
